@@ -13,7 +13,7 @@ struct MealToplevelDictionary: Decodable {
 
 struct Meal: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case mealname = "strMeal"
+        case mealName = "strMeal"
         case mealImageURL = "strMealThumb"
         case mealID = "idMeal"
     }

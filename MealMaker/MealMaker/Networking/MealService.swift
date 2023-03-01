@@ -35,7 +35,35 @@ struct MealService {
         }.resume()
     }
     
-    static func fetchmealsInCategory() {
+    static func fetchmealsInCategory(forCategory category: Category, completion: @escaping(Result<[Meal], NetworkError>) -> Void) {
         
+        guard let baseURL = URL(string: Constants.MealService.mealsInCategoryBaseURL) else { completion(.failure(.invalidURL)) ; return }
+        
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        let categoryQueryItem = URLQueryItem(name: Constants.MealService.categoryQueryKey, value: category.categoryName)
+        urlComponents?.queryItems = [categoryQueryItem]
+        guard let finalURL = urlComponents?.url else { completion(.failure(.invalidURL)) ; return }
+        print("Fetch Meals in Category Final URL: \(finalURL)")
+        
+        URLSession.shared.dataTask(with: finalURL) { data, response, error in
+            if let error = error {
+                completion(.failure(.thrownError(error)))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                print("Fetch Meals in Category Status Code: \(response.statusCode)")
+            }
+            
+            guard let data = data else { completion(.failure(.noData)) ; return }
+            
+            do {
+                let topLevel = try JSONDecoder().decode(MealToplevelDictionary.self, from: data)
+                completion(.success(topLevel.meals))
+            } catch {
+                completion(.failure(.unableToDecode))
+                return
+            }
+        }.resume()
     }
 }
