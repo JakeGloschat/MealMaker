@@ -12,13 +12,14 @@ class MealListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpActivityIndicator()
         fetchMealsInCategory()
     }
     
     // MARK: - Properties
     var category: Category?
     var mealArray: [Meal] = []
-    
+    var activityIndicator = UIActivityIndicatorView()
     
     // MARK: - Functions
     func fetchMealsInCategory() {
@@ -27,13 +28,30 @@ class MealListTableViewController: UITableViewController {
             switch result {
             case .success(let meals):
                 self?.mealArray = meals
-                DispatchQueue.main.async { self?.tableView.reloadData() }
+                self?.stopAnimatingAndReloadData()
             case .failure(let error):
                 print(error.errorDescription ?? Constants.Error.unkownError)
             }
         }
     }
 
+    func setUpActivityIndicator() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .large
+        self.view.addSubview(activityIndicator)
+        self.view.isUserInteractionEnabled = false
+        activityIndicator.startAnimating()
+    }
+    
+    func stopAnimatingAndReloadData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+        }
+    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mealArray.count
