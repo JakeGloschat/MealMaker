@@ -70,8 +70,13 @@ class MealListTableViewController: UITableViewController {
         return cell
     }
   
-  
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toRecipeVC" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                  let destinationVC = segue.destination as? RecipeViewController else { return }
+            let meal = mealArray[indexPath.row]
+            destinationVC.meal = meal
+        }
     }
 }

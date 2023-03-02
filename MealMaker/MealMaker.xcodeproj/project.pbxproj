@@ -19,6 +19,9 @@
 		238E7D1D29AFB46D0016A36E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E7D1C29AFB46D0016A36E /* Constants.swift */; };
 		238E7D2029AFC1A30016A36E /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E7D1F29AFC1A30016A36E /* CategoryTableViewController.swift */; };
 		238E7D2229AFC1AF0016A36E /* MealListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E7D2129AFC1AF0016A36E /* MealListTableViewController.swift */; };
+		238E7D2429AFD0900016A36E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E7D2329AFD0900016A36E /* Recipe.swift */; };
+		238E7D7C29B11BB00016A36E /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E7D7B29B11BB00016A36E /* RecipeViewController.swift */; };
+		238E7D7E29B11BBF0016A36E /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E7D7D29B11BBF0016A36E /* InstructionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		238E7D1C29AFB46D0016A36E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		238E7D1F29AFC1A30016A36E /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		238E7D2129AFC1AF0016A36E /* MealListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListTableViewController.swift; sourceTree = "<group>"; };
+		238E7D2329AFD0900016A36E /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		238E7D7B29B11BB00016A36E /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		238E7D7D29B11BBF0016A36E /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 			children = (
 				238E7D1229AFAE100016A36E /* Category.swift */,
 				238E7D1429AFB0670016A36E /* Meal.swift */,
+				238E7D2329AFD0900016A36E /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -129,6 +136,8 @@
 			children = (
 				238E7D1F29AFC1A30016A36E /* CategoryTableViewController.swift */,
 				238E7D2129AFC1AF0016A36E /* MealListTableViewController.swift */,
+				238E7D7B29B11BB00016A36E /* RecipeViewController.swift */,
+				238E7D7D29B11BBF0016A36E /* InstructionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,10 +218,13 @@
 				238E7D1329AFAE100016A36E /* Category.swift in Sources */,
 				238E7D2029AFC1A30016A36E /* CategoryTableViewController.swift in Sources */,
 				238E7D1B29AFB2DB0016A36E /* NetworkError.swift in Sources */,
+				238E7D7C29B11BB00016A36E /* RecipeViewController.swift in Sources */,
+				238E7D7E29B11BBF0016A36E /* InstructionsViewController.swift in Sources */,
 				238E7D1D29AFB46D0016A36E /* Constants.swift in Sources */,
 				238E7D1829AFB1B60016A36E /* MealService.swift in Sources */,
 				238E7CFE29AFAD790016A36E /* SceneDelegate.swift in Sources */,
 				238E7D2229AFC1AF0016A36E /* MealListTableViewController.swift in Sources */,
+				238E7D2429AFD0900016A36E /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
